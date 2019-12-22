@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import BsNavbar from "react-bootstrap/Navbar";
 import BsButton from "react-bootstrap/Button";
 import { DiReact } from "react-icons/di";
 import { IconContext } from "react-icons";
 
 function Navbar() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const logIn = () => setLoggedIn(true);
+  const logOut = () => setLoggedIn(false);
+
   return (
     <BsNavbar bg="dark" variant="dark">
       <IconContext.Provider
@@ -17,12 +22,20 @@ function Navbar() {
       </IconContext.Provider>
       <BsNavbar.Brand href="/">Reactivise</BsNavbar.Brand>
       <BsNavbar.Collapse className="justify-content-end">
-        <BsNavbar.Text>
-          Signed in as: <a href="#login">Mark Otto</a>
-        </BsNavbar.Text>
-        <BsButton variant="outline-info" className="ml-2">
-          Log out
-        </BsButton>
+        {loggedIn ? (
+          <>
+            <BsNavbar.Text>
+              Signed in as: <a href="#login">Mark Otto</a>
+            </BsNavbar.Text>
+            <BsButton onClick={logOut} variant="outline-info" className="ml-2">
+              Log out
+            </BsButton>
+          </>
+        ) : (
+          <BsButton onClick={logIn} variant="outline-info" className="ml-2">
+            Log in
+          </BsButton>
+        )}
       </BsNavbar.Collapse>
     </BsNavbar>
   );
