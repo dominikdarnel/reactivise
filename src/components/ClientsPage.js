@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Table from "./Table";
+import BsRow from "react-bootstrap/Row";
+import BsCol from "react-bootstrap/Col";
+import BsButton from "react-bootstrap/Button";
 import { API_URL } from "../constants";
 
 function ClientsPage(props) {
@@ -23,9 +26,18 @@ function ClientsPage(props) {
 
   return (
     <>
-      <h1>Clients</h1>
-      {loading && "Loading"}
       {error && "Error..."}
+      <BsRow className="justify-content-md-center">
+        <BsCol lg="2">
+          <h1>Clients</h1>
+        </BsCol>
+      </BsRow>
+      <BsRow className="pb-2">
+        <BsCol md={{ span: 2, offset: 11 }}>
+          <BsButton variant="success">Create Client</BsButton>
+        </BsCol>
+      </BsRow>
+      {loading && "Loading"}
       {clients.length > 1 && !loading && !error && <Table data={clients} />}
     </>
   );
