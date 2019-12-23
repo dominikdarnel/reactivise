@@ -3,6 +3,8 @@ import Table from "./Table";
 import BsRow from "react-bootstrap/Row";
 import BsCol from "react-bootstrap/Col";
 import BsButton from "react-bootstrap/Button";
+import BsSpinner from "react-bootstrap/Spinner";
+import BsAlert from "react-bootstrap/Alert";
 import { API_URL } from "../constants";
 
 function ClientsPage(props) {
@@ -26,7 +28,11 @@ function ClientsPage(props) {
 
   return (
     <>
-      {error && "Error..."}
+      {error && (
+        <BsAlert className="mt-2" variant="danger">
+          Oops, something went wrong here!
+        </BsAlert>
+      )}
       <BsRow className="justify-content-md-center">
         <BsCol lg="2">
           <h1>Clients</h1>
@@ -37,7 +43,7 @@ function ClientsPage(props) {
           <BsButton variant="success">Create Client</BsButton>
         </BsCol>
       </BsRow>
-      {loading && "Loading"}
+      {loading && <BsSpinner animation="grow" />}
       {clients.length > 1 && !loading && !error && <Table data={clients} />}
     </>
   );
