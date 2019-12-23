@@ -17,8 +17,8 @@ function Table({ data }) {
       <tbody>
         {data.map((record, i) => {
           return (
-            <tr key={i + 1}>
-              <td>{i}</td>
+            <tr key={i}>
+              <td>{i + 1}</td>
               {Object.values(record).map((attribute, j) => {
                 return <td key={j}>{attribute}</td>;
               })}
