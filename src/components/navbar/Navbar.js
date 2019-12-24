@@ -24,15 +24,25 @@ function Navbar() {
       <BsNavbar.Collapse className="justify-content-end">
         {loggedIn ? (
           <>
-            <BsNavbar.Text>
+            <BsNavbar.Text data-testid="current-user-text">
               Signed in as: <a href="#login">Mark Otto</a>
             </BsNavbar.Text>
-            <BsButton onClick={logOut} variant="outline-info" className="ml-2">
+            <BsButton
+              onClick={logOut}
+              variant="outline-info"
+              className="ml-2"
+              data-testid="logout-button"
+            >
               Log out
             </BsButton>
           </>
         ) : (
-          <BsButton onClick={logIn} variant="outline-info" className="ml-2">
+          <BsButton
+            onClick={logIn}
+            variant="outline-info"
+            className="ml-2"
+            data-testid="login-button"
+          >
             Log in
           </BsButton>
         )}
