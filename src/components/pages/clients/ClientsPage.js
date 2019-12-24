@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Table from "../../table";
+import { API_URL } from "../../../constants";
 import BsRow from "react-bootstrap/Row";
 import BsCol from "react-bootstrap/Col";
 import BsButton from "react-bootstrap/Button";
-import BsSpinner from "react-bootstrap/Spinner";
 import BsAlert from "react-bootstrap/Alert";
-import { API_URL } from "../../../constants";
+import Table from "../../table";
+import TableSkeleton from "../../loaders/tableSkeleton";
 
 function ClientsPage(props) {
   const [clients, setClients] = useState([]);
@@ -43,7 +43,7 @@ function ClientsPage(props) {
           <BsButton variant="success">Create Client</BsButton>
         </BsCol>
       </BsRow>
-      {loading && <BsSpinner animation="grow" />}
+      {loading && <TableSkeleton />}
       {clients.length > 1 && !loading && !error && <Table data={clients} />}
     </>
   );
