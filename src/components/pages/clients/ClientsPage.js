@@ -17,7 +17,8 @@ function ClientsPage(props) {
     setLoading(true);
     fetch(API_URL + "clients")
       .then(response => response.json())
-      .then(data => {
+      .then(async data => {
+        await new Promise(r => setTimeout(r, 2000));
         setClients(data);
         setLoading(false);
       })
