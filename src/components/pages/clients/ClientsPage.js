@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Table from "../table";
+import Table from "../../table";
 import BsRow from "react-bootstrap/Row";
 import BsCol from "react-bootstrap/Col";
 import BsButton from "react-bootstrap/Button";
 import BsSpinner from "react-bootstrap/Spinner";
 import BsAlert from "react-bootstrap/Alert";
-import { API_URL } from "./../../constants";
+import { API_URL } from "../../../constants";
 
 function ClientsPage(props) {
   const [clients, setClients] = useState([]);
