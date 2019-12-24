@@ -6,6 +6,7 @@ import BsButton from "react-bootstrap/Button";
 import BsAlert from "react-bootstrap/Alert";
 import Table from "../../table";
 import TableSkeleton from "../../loaders/tableSkeleton";
+import NoResult from "../../emptyStates/noResult";
 
 function ClientsPage(props) {
   const [clients, setClients] = useState([]);
@@ -45,6 +46,7 @@ function ClientsPage(props) {
       </BsRow>
       {loading && <TableSkeleton />}
       {clients.length > 1 && !loading && !error && <Table data={clients} />}
+      {clients.length === 0 && !loading && <NoResult />}
     </>
   );
 }
