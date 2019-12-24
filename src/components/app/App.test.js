@@ -2,8 +2,8 @@ import React from "react";
 import { render } from "@testing-library/react";
 import App from "./App";
 
-test("renders app component", () => {
+test("renders component correctly", () => {
   const { getByText } = render(<App />);
-  const element = getByText(/Clients/i);
+  const element = getByText(/Reactivise/i);
   expect(element).toBeInTheDocument();
 });
