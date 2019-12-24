@@ -10,7 +10,7 @@ function ButtonSkeleton() {
       primaryColor="#f3f3f3"
       secondaryColor="#ecebeb"
     >
-      <rect x="87" y="62" rx="5" ry="5" width="211" height="40" />
+      <rect x="-150" y="62" rx="6" ry="6" width="300" height="50" />
     </ContentLoader>
   );
 }

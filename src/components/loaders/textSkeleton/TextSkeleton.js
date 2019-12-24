@@ -10,8 +10,8 @@ function TextSkeleton() {
       primaryColor="#f3f3f3"
       secondaryColor="#ecebeb"
     >
-      <rect x="68" y="77" rx="4" ry="4" width="117" height="6" />
-      <rect x="69" y="96" rx="3" ry="3" width="85" height="6" />
+      <rect x="68" y="77" rx="4" ry="4" width="270" height="30" />
+      <rect x="69" y="130" rx="3" ry="3" width="170" height="30" />
     </ContentLoader>
   );
 }

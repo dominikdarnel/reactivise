@@ -6,6 +6,8 @@ import BsButton from "react-bootstrap/Button";
 import BsAlert from "react-bootstrap/Alert";
 import Table from "../../table";
 import TableSkeleton from "../../loaders/tableSkeleton";
+import ButtonSkeleton from "../../loaders/buttonSkeleton";
+import TextSkeleton from "../../loaders/textSkeleton";
 import NoResult from "../../emptyStates/noResult";
 
 function ClientsPage() {
@@ -35,19 +37,56 @@ function ClientsPage() {
           Oops, something went wrong here!
         </BsAlert>
       )}
-      <BsRow className="justify-content-md-center">
-        <BsCol lg="2">
-          <h1 className="mt-3 display-3">Clients</h1>
-        </BsCol>
-      </BsRow>
-      <BsRow className="pb-2">
-        <BsCol md={{ span: 2, offset: 11 }}>
-          <BsButton variant="success">Create Client</BsButton>
-        </BsCol>
-      </BsRow>
-      {loading && <TableSkeleton />}
-      {clients.length > 1 && !loading && !error && <Table data={clients} />}
-      {clients.length === 0 && !loading && <NoResult />}
+
+      {loading && (
+        <>
+          <BsRow className="justify-content-md-center">
+            <BsCol lg="2">
+              <TextSkeleton lassName="mt-3" />
+            </BsCol>
+          </BsRow>
+          <BsRow className="pb-2">
+            <BsCol md={{ span: 2, offset: 11 }}>
+              <ButtonSkeleton />
+            </BsCol>
+          </BsRow>
+          <TableSkeleton />
+        </>
+      )}
+
+      {!loading && clients.length === 0 && (
+        <>
+          <BsRow className="justify-content-md-center">
+            <BsCol lg="2">
+              <h1 className="mt-3 display-3">Clients</h1>
+            </BsCol>
+          </BsRow>
+          <NoResult />
+          <BsRow className="pb-2">
+            <BsCol className="text-center" lg={{ span: 6, offset: 3 }}>
+              <BsButton variant="success" size="lg">
+                Create Client
+              </BsButton>
+            </BsCol>
+          </BsRow>
+        </>
+      )}
+
+      {!loading && clients.length > 1 && !error && (
+        <>
+          <BsRow className="justify-content-md-center">
+            <BsCol lg="2">
+              <h1 className="mt-3 display-3">Clients</h1>
+            </BsCol>
+          </BsRow>
+          <BsRow className="pb-2">
+            <BsCol md={{ span: 2, offset: 11 }}>
+              <BsButton variant="success">Create Client</BsButton>
+            </BsCol>
+          </BsRow>
+          <Table data={clients} />
+        </>
+      )}
     </>
   );
 }
