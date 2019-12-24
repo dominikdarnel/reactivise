@@ -8,9 +8,13 @@ function Table({ data }) {
     <BsTable striped bordered hover>
       <thead>
         <tr>
-          <th>#</th>
+          <th data-testid={`column-${1}`}>#</th>
           {keys.map((key, index) => {
-            return <th key={index}>{key}</th>;
+            return (
+              <th key={index} data-testid={`column-${index + 2}`}>
+                {key}
+              </th>
+            );
           })}
         </tr>
       </thead>
@@ -18,9 +22,13 @@ function Table({ data }) {
         {data.map((record, i) => {
           return (
             <tr key={i}>
-              <td>{i + 1}</td>
+              <td data-testid={`row-${i + 1}-attribute-${1}`}>{i + 1}</td>
               {Object.values(record).map((attribute, j) => {
-                return <td key={j}>{attribute.toString()}</td>;
+                return (
+                  <td key={j} data-testid={`row-${i + 1}-attribute-${j + 2}`}>
+                    {attribute.toString()}
+                  </td>
+                );
               })}
             </tr>
           );
