@@ -35,7 +35,7 @@ function ClientsPage(props) {
       )}
       <BsRow className="justify-content-md-center">
         <BsCol lg="2">
-          <h1>Clients</h1>
+          <h1 className="mt-3 display-3">Clients</h1>
         </BsCol>
       </BsRow>
       <BsRow className="pb-2">
