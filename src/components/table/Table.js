@@ -20,7 +20,7 @@ function Table({ data }) {
             <tr key={i}>
               <td>{i + 1}</td>
               {Object.values(record).map((attribute, j) => {
-                return <td key={j}>{attribute}</td>;
+                return <td key={j}>{attribute.toString()}</td>;
               })}
             </tr>
           );

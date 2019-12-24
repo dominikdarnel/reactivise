@@ -8,7 +8,7 @@ import Table from "../../table";
 import TableSkeleton from "../../loaders/tableSkeleton";
 import NoResult from "../../emptyStates/noResult";
 
-function ClientsPage(props) {
+function ClientsPage() {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
