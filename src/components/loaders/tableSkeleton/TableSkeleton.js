@@ -25,7 +25,8 @@ const TableRowSkeleton = props => {
 };
 
 const TableSkeleton = () => (
-  <React.Fragment>
+  <>
+    <div data-testid="table-skeleton" />
     {Array(10)
       .fill("")
       .map((e, i) => (
@@ -34,7 +35,7 @@ const TableSkeleton = () => (
           style={{ opacity: Number(2 / i).toFixed(1) }}
         />
       ))}
-  </React.Fragment>
+  </>
 );
 
 export default TableSkeleton;
