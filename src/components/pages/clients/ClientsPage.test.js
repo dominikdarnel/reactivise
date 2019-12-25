@@ -41,16 +41,30 @@ test("renders alert on error", async () => {
   });
 });
 
-// const mockedResponse = [
-//   {
-//     id: "id",
-//     isActive: true,
-//     age: 1,
-//     name: "name",
-//     gender: "gender",
-//     company: "company",
-//     email: "email",
-//     phone: "phone",
-//     address: "address"
-//   }
-// ];
+test("renders table when there are results", async () => {
+  let getByTestId;
+
+  const mockedResponse = [
+    {
+      id: "id",
+      isActive: true,
+      age: 1,
+      name: "name",
+      gender: "gender",
+      company: "company",
+      email: "email",
+      phone: "phone",
+      address: "address"
+    }
+  ];
+  fetch.mockResponseOnce(JSON.stringify(mockedResponse));
+
+  await act(async () => {
+    const rendered = render(<ClientsPage />);
+    getByTestId = rendered.getByTestId;
+  });
+
+  await wait(() => {
+    expect(getByTestId("table")).toBeTruthy();
+  });
+});

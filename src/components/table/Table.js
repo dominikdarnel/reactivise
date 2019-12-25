@@ -5,7 +5,7 @@ function Table({ data }) {
   const keys = Object.keys(data[0]);
 
   return (
-    <BsTable striped bordered hover>
+    <BsTable striped bordered hover data-testid="table">
       <thead>
         <tr>
           <th data-testid={`column-${1}`}>#</th>
