@@ -10,11 +10,21 @@ import ButtonSkeleton from "../../loaders/buttonSkeleton";
 import TextSkeleton from "../../loaders/textSkeleton";
 import NoResult from "../../emptyStates/noResult";
 import SomethingWrong from "../../emptyStates/somethingWentWrong";
+import Modal from "../../modal";
 
 function ClientsPage() {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
+
+  const openModal = () => {
+    setModalShow(true);
+  };
+
+  const closeModal = () => {
+    setModalShow(false);
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -97,12 +107,23 @@ function ClientsPage() {
           </BsRow>
           <BsRow className="pb-2">
             <BsCol md={{ span: 2, offset: 11 }}>
-              <BsButton variant="success">Create Client</BsButton>
+              <BsButton onClick={openModal} variant="success">
+                New Client
+              </BsButton>
             </BsCol>
           </BsRow>
           <Table data={clients} />
         </>
       )}
+
+      <Modal
+        show={modalShow}
+        buttonLabel="Save Client"
+        headerLabel="New Client"
+        onHide={closeModal}
+      >
+        From
+      </Modal>
     </>
   );
 }

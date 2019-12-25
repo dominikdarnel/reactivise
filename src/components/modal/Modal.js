@@ -2,19 +2,11 @@ import React, { useState, useEffect } from "react";
 import BsModal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-function Modal({ open, buttonLabel, headerLabel, children }) {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-
-  useEffect(() => {
-    setShow(open);
-  }, [open]);
-
+function Modal({ show, onHide, buttonLabel, headerLabel, children }) {
   return (
     <>
       <div data-testid="modal" />
-      <BsModal show={show} onHide={handleClose}>
+      <BsModal show={show} onHide={onHide}>
         <BsModal.Header closeButton>
           <BsModal.Title>{headerLabel}</BsModal.Title>
         </BsModal.Header>
@@ -22,12 +14,12 @@ function Modal({ open, buttonLabel, headerLabel, children }) {
         <BsModal.Footer>
           <Button
             variant="secondary"
-            onClick={handleClose}
+            onClick={onHide}
             data-testid="secondary-button"
           >
             Close
           </Button>
-          <Button variant="success" onClick={handleClose}>
+          <Button variant="success" onClick={onHide}>
             {buttonLabel}
           </Button>
         </BsModal.Footer>
