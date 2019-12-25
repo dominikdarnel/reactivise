@@ -41,7 +41,7 @@ test("renders alert on error", async () => {
   });
 });
 
-test("renders table when there are results", async () => {
+test.skip("renders table when there are results", async () => {
   let getByTestId;
 
   const mockedResponse = [
