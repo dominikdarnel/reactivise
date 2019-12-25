@@ -25,7 +25,22 @@ test("renders empty state when there is no result", async () => {
   });
 });
 
-test.skip("renders table with correct headers", () => {});
+test("renders alert on error", async () => {
+  let getByTestId;
+
+  fetch.mockRejectOnce(new Error("fake error message"));
+
+  await act(async () => {
+    const rendered = render(<ClientsPage />);
+    getByTestId = rendered.getByTestId;
+  });
+
+  await wait(() => {
+    expect(getByTestId("alert-danger")).toBeTruthy();
+    expect(getByTestId("no-result")).toBeTruthy();
+    expect(getByTestId("centered-button")).toBeTruthy();
+  });
+});
 
 // const mockedResponse = [
 //   {

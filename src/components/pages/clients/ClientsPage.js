@@ -33,7 +33,7 @@ function ClientsPage() {
   return (
     <>
       {error && (
-        <BsAlert className="mt-2" variant="danger">
+        <BsAlert className="mt-2" variant="danger" data-testid="alert-danger">
           Oops, something went wrong here!
         </BsAlert>
       )}
