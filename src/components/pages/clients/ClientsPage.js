@@ -9,6 +9,7 @@ import TableSkeleton from "../../loaders/tableSkeleton";
 import ButtonSkeleton from "../../loaders/buttonSkeleton";
 import TextSkeleton from "../../loaders/textSkeleton";
 import NoResult from "../../emptyStates/noResult";
+import SomethingWrong from "../../emptyStates/somethingWentWrong";
 
 function ClientsPage() {
   const [clients, setClients] = useState([]);
@@ -33,9 +34,16 @@ function ClientsPage() {
   return (
     <>
       {error && (
-        <BsAlert className="mt-2" variant="danger" data-testid="alert-danger">
-          Oops, something went wrong here!
-        </BsAlert>
+        <>
+          <BsAlert className="mt-2" variant="danger" data-testid="alert-danger">
+            Oops, something went wrong here!
+          </BsAlert>
+          <BsRow className="justify-content-md-center">
+            <BsCol lg="6">
+              <SomethingWrong />
+            </BsCol>
+          </BsRow>
+        </>
       )}
 
       {loading && (
@@ -54,7 +62,7 @@ function ClientsPage() {
         </>
       )}
 
-      {!loading && clients.length === 0 && (
+      {!loading && clients.length === 0 && !error && (
         <>
           <BsRow className="justify-content-md-center">
             <BsCol lg="2">
