@@ -33,4 +33,16 @@ describe("Modal", () => {
       expect(queryByTestId("modal-body")).toBeNull();
     });
   });
+
+  test.skip("renders button label and header label", () => {
+    const { getByText } = render(
+      <Modal open={true} buttonLabel="buttonLabel" headerLabel="headerLabel" />
+    );
+
+    const headerLabel = getByText("headerLabel");
+    const buttonLabel = getByText("buttonLabel");
+
+    expect(headerLabel).toBeInTheDocument();
+    expect(buttonLabel).toBeInTheDocument();
+  });
 });
