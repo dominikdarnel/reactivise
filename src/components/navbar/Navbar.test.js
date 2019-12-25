@@ -2,7 +2,7 @@ import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import Navbar from "./Navbar";
 
-describe("App", () => {
+describe("Navbar", () => {
   afterEach(cleanup);
 
   test("renders component with brand name", () => {
