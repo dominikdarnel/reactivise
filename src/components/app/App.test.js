@@ -1,9 +1,13 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, act } from "@testing-library/react";
 import App from "./App";
 
-test("renders component correctly", () => {
-  const { getByText } = render(<App />);
+test("renders component correctly", async () => {
+  let getByText;
+  await act(async () => {
+    getByText = render(<App />).getByText;
+  });
+
   const element = getByText(/Reactivise/i);
   expect(element).toBeInTheDocument();
 });

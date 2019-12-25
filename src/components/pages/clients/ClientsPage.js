@@ -61,9 +61,17 @@ function ClientsPage() {
               <h1 className="mt-3 display-3">Clients</h1>
             </BsCol>
           </BsRow>
-          <NoResult />
+          <BsRow className="justify-content-md-center">
+            <BsCol lg="6">
+              <NoResult />
+            </BsCol>
+          </BsRow>
           <BsRow className="pb-2">
-            <BsCol className="text-center" lg={{ span: 6, offset: 3 }}>
+            <BsCol
+              className="text-center"
+              lg={{ span: 6, offset: 3 }}
+              data-testid="centered-button"
+            >
               <BsButton variant="success" size="lg">
                 Create Client
               </BsButton>
