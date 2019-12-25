@@ -90,8 +90,8 @@ function ClientsPage() {
               lg={{ span: 6, offset: 3 }}
               data-testid="centered-button"
             >
-              <BsButton variant="success" size="lg">
-                Create Client
+              <BsButton onClick={openModal} variant="success" size="lg">
+                New Client
               </BsButton>
             </BsCol>
           </BsRow>

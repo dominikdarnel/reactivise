@@ -1,5 +1,5 @@
 import React from "react";
-import { render, cleanup, act, wait } from "@testing-library/react";
+import { render, cleanup, act, wait, fireEvent } from "@testing-library/react";
 import ClientsPage from "./ClientsPage";
 
 describe("ClientsPage", () => {
@@ -68,6 +68,30 @@ describe("ClientsPage", () => {
 
     await wait(() => {
       expect(getByTestId("table")).toBeTruthy();
+    });
+  });
+
+  test("clicking on New Client button opens modal", async () => {
+    let getByTestId;
+    let getByText;
+    let debug;
+
+    const mockedResponse = [];
+    fetch.mockResponseOnce(JSON.stringify(mockedResponse));
+
+    await act(async () => {
+      const rendered = render(<ClientsPage />);
+      getByTestId = rendered.getByTestId;
+      getByText = rendered.getByText;
+      debug = rendered.debug;
+    });
+
+    await wait(() => {
+      const button = getByText("New Client");
+      fireEvent.click(button);
+
+      const modalBody = getByTestId("modal-body");
+      expect(modalBody).toBeInTheDocument();
     });
   });
 });
