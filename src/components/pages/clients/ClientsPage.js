@@ -49,8 +49,11 @@ function ClientsPage() {
   const submitNewClient = serializedFormData => {
     fetch(API_URL + "clients", {
       method: "post",
-      body: JSON.stringify(serializedFormData)
-    }).then(function() {
+      body: JSON.stringify(serializedFormData),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function(response) {
       fetchClients();
     });
   };
