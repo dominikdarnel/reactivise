@@ -3,14 +3,25 @@ import BsModal from "react-bootstrap/Modal";
 import BsButton from "react-bootstrap/Button";
 import BsForm from "react-bootstrap/Form";
 
-function FormModal({ show, onHide, buttonLabel, headerLabel, children }) {
+function FormModal({
+  show,
+  onHide,
+  buttonLabel,
+  headerLabel,
+  processSubmit,
+  children
+}) {
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = event => {
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (form.checkValidity() === true) {
+      console.log(12345678);
+      processSubmit();
     }
 
     setValidated(true);
