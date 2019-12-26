@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import BsModal from "react-bootstrap/Modal";
 import BsButton from "react-bootstrap/Button";
 import BsForm from "react-bootstrap/Form";
 
-function FormModal({
-  show,
-  onHide,
-  handleSubmit,
-  validated,
-  buttonLabel,
-  headerLabel,
-  children
-}) {
+function FormModal({ show, onHide, buttonLabel, headerLabel, children }) {
+  const [validated, setValidated] = useState(false);
+
+  const handleSubmit = event => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+  };
+
   return (
     <>
       <div data-testid="modal" />
@@ -29,7 +33,7 @@ function FormModal({
             >
               Close
             </BsButton>
-            <BsButton type="submit" variant="success" onClick={onHide}>
+            <BsButton type="submit" variant="success">
               {buttonLabel}
             </BsButton>
           </BsModal.Footer>

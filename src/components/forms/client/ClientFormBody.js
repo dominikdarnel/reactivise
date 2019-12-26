@@ -7,22 +7,22 @@ function ClientFormBody() {
     <>
       <BsForm.Group controlId="id">
         <BsForm.Label>ID:</BsForm.Label>
-        <BsForm.Control readOnly />
+        <BsForm.Control required readOnly defaultValue={uuid()} />
       </BsForm.Group>
 
       <BsForm.Group controlId="name">
         <BsForm.Label>Name:</BsForm.Label>
-        <BsForm.Control />
+        <BsForm.Control required />
       </BsForm.Group>
 
       <BsForm.Group controlId="age">
         <BsForm.Label>Age:</BsForm.Label>
-        <BsForm.Control type="number" />
+        <BsForm.Control required type="number" />
       </BsForm.Group>
 
       <BsForm.Group controlId="gender">
         <BsForm.Label>Gender</BsForm.Label>
-        <BsForm.Control as="select">
+        <BsForm.Control as="select" required>
           <option disabled value>
             Please choose gender
           </option>
@@ -33,12 +33,12 @@ function ClientFormBody() {
 
       <BsForm.Group controlId="company">
         <BsForm.Label>Company:</BsForm.Label>
-        <BsForm.Control />
+        <BsForm.Control required />
       </BsForm.Group>
 
       <BsForm.Group controlId="email">
         <BsForm.Label>Email:</BsForm.Label>
-        <BsForm.Control />
+        <BsForm.Control required />
       </BsForm.Group>
 
       <BsForm.Group controlId="phone">
@@ -48,13 +48,25 @@ function ClientFormBody() {
 
       <BsForm.Group controlId="address">
         <BsForm.Label>Address:</BsForm.Label>
-        <BsForm.Control />
+        <BsForm.Control required />
       </BsForm.Group>
 
       <BsForm.Group controlId="isActive">
         <BsForm.Label>Active:</BsForm.Label>
-        <BsForm.Check type="radio" label="No" name="isActive" id="isActive" />
-        <BsForm.Check type="radio" label="Yes" name="isActive" id="isActive" />
+        <BsForm.Check
+          type="radio"
+          label="No"
+          name="isActive"
+          id="isActive"
+          required
+        />
+        <BsForm.Check
+          type="radio"
+          label="Yes"
+          name="isActive"
+          id="isActive"
+          required
+        />
       </BsForm.Group>
     </>
   );
