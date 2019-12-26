@@ -1,3 +1,3 @@
-import ClientForm from "./ClientForm";
+import ClientFormBody from "./ClientForm";
 
-export default ClientForm;
+export default ClientFormBody;

@@ -10,8 +10,8 @@ import ButtonSkeleton from "../../loaders/buttonSkeleton";
 import TextSkeleton from "../../loaders/textSkeleton";
 import NoResult from "../../emptyStates/noResult";
 import SomethingWrong from "../../emptyStates/somethingWentWrong";
-import Modal from "../../modal";
-import ClientForm from "../../forms/client/ClientForm";
+import FormModal from "../../modals/form";
+import ClientFormBody from "../../forms/client/ClientFormBody";
 
 function ClientsPage() {
   const [clients, setClients] = useState([]);
@@ -117,14 +117,14 @@ function ClientsPage() {
         </>
       )}
 
-      <Modal
+      <FormModal
         show={modalShow}
         buttonLabel="Save Client"
         headerLabel="New Client"
         onHide={closeModal}
       >
-        <ClientForm />
-      </Modal>
+        <ClientFormBody />
+      </FormModal>
     </>
   );
 }

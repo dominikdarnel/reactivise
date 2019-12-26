@@ -2,18 +2,12 @@ import React from "react";
 import uuid from "uuid";
 import BsForm from "react-bootstrap/Form";
 
-function ClientForm(props) {
+function ClientFormBody() {
   return (
-    <BsForm>
+    <>
       <BsForm.Group controlId="id">
         <BsForm.Label>ID:</BsForm.Label>
         <BsForm.Control readOnly />
-      </BsForm.Group>
-
-      <BsForm.Group controlId="isActive">
-        <BsForm.Label>Active:</BsForm.Label>
-        <BsForm.Check type="radio" label="No" name="isActive" id="isActive" />
-        <BsForm.Check type="radio" label="Yes" name="isActive" id="isActive" />
       </BsForm.Group>
 
       <BsForm.Group controlId="name">
@@ -29,7 +23,7 @@ function ClientForm(props) {
       <BsForm.Group controlId="gender">
         <BsForm.Label>Gender</BsForm.Label>
         <BsForm.Control as="select">
-          <option disabled selected>
+          <option disabled value>
             Please choose gender
           </option>
           <option>Male</option>
@@ -56,8 +50,14 @@ function ClientForm(props) {
         <BsForm.Label>Address:</BsForm.Label>
         <BsForm.Control />
       </BsForm.Group>
-    </BsForm>
+
+      <BsForm.Group controlId="isActive">
+        <BsForm.Label>Active:</BsForm.Label>
+        <BsForm.Check type="radio" label="No" name="isActive" id="isActive" />
+        <BsForm.Check type="radio" label="Yes" name="isActive" id="isActive" />
+      </BsForm.Group>
+    </>
   );
 }
 
-export default ClientForm;
+export default ClientFormBody;

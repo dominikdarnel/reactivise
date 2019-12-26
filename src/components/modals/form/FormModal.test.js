@@ -1,19 +1,19 @@
 import React from "react";
 import { render, cleanup, fireEvent, wait } from "@testing-library/react";
-import Modal from "./Modal";
+import FormModal from "./FormModal";
 
 describe("Modal", () => {
   afterEach(cleanup);
 
   test("renders closed modal", () => {
-    const { getByTestId, queryByTestId } = render(<Modal show={false} />);
+    const { getByTestId, queryByTestId } = render(<FormModal show={false} />);
     const modal = getByTestId("modal");
     expect(modal).toBeInTheDocument();
     expect(queryByTestId("modal-body")).toBeNull();
   });
 
   test("renders opened modal modal", () => {
-    const { getByTestId } = render(<Modal show={true} />);
+    const { getByTestId } = render(<FormModal show={true} />);
     const modal = getByTestId("modal");
     const modalBody = getByTestId("modal-body");
 
@@ -22,7 +22,7 @@ describe("Modal", () => {
   });
 
   test("closes opened modal when clicking on secondary button", () => {
-    const { getByTestId, queryByTestId } = render(<Modal show={true} />);
+    const { getByTestId, queryByTestId } = render(<FormModal show={true} />);
     const modal = getByTestId("modal");
     const secondaryButton = getByTestId("secondary-button");
 
@@ -36,7 +36,11 @@ describe("Modal", () => {
 
   test("renders button label and header label", () => {
     const { getByText } = render(
-      <Modal show={true} buttonLabel="buttonLabel" headerLabel="headerLabel" />
+      <FormModal
+        show={true}
+        buttonLabel="buttonLabel"
+        headerLabel="headerLabel"
+      />
     );
 
     const headerLabel = getByText("headerLabel");
