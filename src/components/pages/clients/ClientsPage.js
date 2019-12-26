@@ -27,12 +27,12 @@ function ClientsPage() {
     setModalShow(false);
   };
 
-  useEffect(() => {
+  const fetchClients = () => {
     setLoading(true);
     fetch(API_URL + "clients")
       .then(response => response.json())
       .then(async data => {
-        await new Promise(r => setTimeout(r, 2000));
+        await new Promise(r => setTimeout(r, 1000));
         setClients(data);
         setLoading(false);
       })
@@ -40,7 +40,20 @@ function ClientsPage() {
         setError(true);
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    fetchClients();
   }, []);
+
+  const submitNewClient = serializedFormData => {
+    fetch(API_URL + "clients", {
+      method: "post",
+      body: JSON.stringify(serializedFormData)
+    }).then(function() {
+      fetchClients();
+    });
+  };
 
   return (
     <>
@@ -122,6 +135,7 @@ function ClientsPage() {
         buttonLabel="Save Client"
         headerLabel="New Client"
         onHide={closeModal}
+        processSubmit={submitNewClient}
       >
         <ClientFormBody />
       </FormModal>

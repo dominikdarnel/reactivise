@@ -7,22 +7,22 @@ function ClientFormBody() {
     <>
       <BsForm.Group controlId="id">
         <BsForm.Label>ID:</BsForm.Label>
-        <BsForm.Control required readOnly defaultValue={uuid()} />
+        <BsForm.Control required readOnly defaultValue={uuid()} name="id" />
       </BsForm.Group>
 
       <BsForm.Group controlId="name">
         <BsForm.Label>Name:</BsForm.Label>
-        <BsForm.Control required />
+        <BsForm.Control required name="name" />
       </BsForm.Group>
 
       <BsForm.Group controlId="age">
         <BsForm.Label>Age:</BsForm.Label>
-        <BsForm.Control required type="number" />
+        <BsForm.Control required type="number" name="age" />
       </BsForm.Group>
 
       <BsForm.Group controlId="gender">
         <BsForm.Label>Gender</BsForm.Label>
-        <BsForm.Control as="select" required>
+        <BsForm.Control as="select" required name="gender">
           <option disabled value>
             Please choose gender
           </option>
@@ -33,22 +33,22 @@ function ClientFormBody() {
 
       <BsForm.Group controlId="company">
         <BsForm.Label>Company:</BsForm.Label>
-        <BsForm.Control required />
+        <BsForm.Control required name="company" />
       </BsForm.Group>
 
       <BsForm.Group controlId="email">
         <BsForm.Label>Email:</BsForm.Label>
-        <BsForm.Control required />
+        <BsForm.Control required name="email" />
       </BsForm.Group>
 
       <BsForm.Group controlId="phone">
         <BsForm.Label>Phone:</BsForm.Label>
-        <BsForm.Control />
+        <BsForm.Control name="phone" />
       </BsForm.Group>
 
       <BsForm.Group controlId="address">
         <BsForm.Label>Address:</BsForm.Label>
-        <BsForm.Control required />
+        <BsForm.Control required name="address" />
       </BsForm.Group>
 
       <BsForm.Group controlId="isActive">
@@ -58,6 +58,7 @@ function ClientFormBody() {
           label="No"
           name="isActive"
           id="isActive"
+          value="false"
           required
         />
         <BsForm.Check
@@ -65,6 +66,7 @@ function ClientFormBody() {
           label="Yes"
           name="isActive"
           id="isActive"
+          value="true"
           required
         />
       </BsForm.Group>

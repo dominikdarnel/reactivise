@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import serialize from "form-serialize";
 import BsModal from "react-bootstrap/Modal";
 import BsButton from "react-bootstrap/Button";
 import BsForm from "react-bootstrap/Form";
@@ -15,13 +16,13 @@ function FormModal({
 
   const handleSubmit = event => {
     const form = event.currentTarget;
+    const serializedFormData = serialize(form, { hash: true });
 
     event.preventDefault();
     event.stopPropagation();
 
     if (form.checkValidity() === true) {
-      console.log(12345678);
-      processSubmit();
+      processSubmit(serializedFormData);
     }
 
     setValidated(true);
