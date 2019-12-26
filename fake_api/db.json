@@ -3,8 +3,8 @@
       {
         "id": "59761c23b30d971669fb42ff",
         "isActive": true,
-        "age": 36,
         "name": "Dunlap Hubbard",
+        "age": 36,
         "gender": "male",
         "company": "CEDWARD",
         "email": "dunlaphubbard@cedward.com",
@@ -14,8 +14,8 @@
       {
         "id": "59761c233d8d0f92a6b0570d",
         "isActive": true,
-        "age": 24,
         "name": "Kirsten Sellers",
+        "age": 24,
         "gender": "female",
         "company": "EMERGENT",
         "email": "kirstensellers@emergent.com",
@@ -25,8 +25,8 @@
       {
         "id": "59761c233d8d0f92a6b0570d",
         "isActive": true,
-        "age": 24,
         "name": "Kirsten Sellers",
+        "age": 24,
         "gender": "female",
         "company": "EMERGENT",
         "email": "kirstensellers@emergent.com",
@@ -36,8 +36,8 @@
       {
         "id": "59761c233d8d0f92a6b0570d",
         "isActive": true,
-        "age": 24,
         "name": "Kirsten Sellers",
+        "age": 24,
         "gender": "female",
         "company": "EMERGENT",
         "email": "kirstensellers@emergent.com",
@@ -47,8 +47,8 @@
       {
         "id": "59761c233d8d0f92a6b0570d",
         "isActive": true,
-        "age": 24,
         "name": "Kirsten Sellers",
+        "age": 24,
         "gender": "female",
         "company": "EMERGENT",
         "email": "kirstensellers@emergent.com",
@@ -58,8 +58,8 @@
       {
         "id": "59761c23b30d971669fb42ff",
         "isActive": true,
-        "age": 36,
         "name": "Dunlap Hubbard",
+        "age": 36,
         "gender": "male",
         "company": "CEDWARD",
         "email": "dunlaphubbard@cedward.com",
@@ -69,8 +69,8 @@
       {
         "id": "59761c23b30d971669fb42ff",
         "isActive": true,
-        "age": 36,
         "name": "Dunlap Hubbard",
+        "age": 36,
         "gender": "male",
         "company": "CEDWARD",
         "email": "dunlaphubbard@cedward.com",
@@ -80,8 +80,8 @@
       {
         "id": "59761c23fcb6254b1a06dad5",
         "isActive": true,
-        "age": 30,
         "name": "Acosta Robbins",
+        "age": 30,
         "gender": "male",
         "company": "ORGANICA",
         "email": "acostarobbins@organica.com",

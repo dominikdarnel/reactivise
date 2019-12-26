@@ -11,6 +11,7 @@ import TextSkeleton from "../../loaders/textSkeleton";
 import NoResult from "../../emptyStates/noResult";
 import SomethingWrong from "../../emptyStates/somethingWentWrong";
 import Modal from "../../modal";
+import ClientForm from "../../forms/client/ClientForm";
 
 function ClientsPage() {
   const [clients, setClients] = useState([]);
@@ -122,7 +123,7 @@ function ClientsPage() {
         headerLabel="New Client"
         onHide={closeModal}
       >
-        From
+        <ClientForm />
       </Modal>
     </>
   );
