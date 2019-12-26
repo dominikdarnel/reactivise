@@ -10,6 +10,26 @@ function ClientFormBody() {
         <BsForm.Control required readOnly defaultValue={uuid()} name="id" />
       </BsForm.Group>
 
+      <BsForm.Group controlId="isActive">
+        <BsForm.Label>Active:</BsForm.Label>
+        <BsForm.Check
+          type="radio"
+          label="No"
+          name="isActive"
+          id="isActive"
+          value="false"
+          required
+        />
+        <BsForm.Check
+          type="radio"
+          label="Yes"
+          name="isActive"
+          id="isActive"
+          value="true"
+          required
+        />
+      </BsForm.Group>
+
       <BsForm.Group controlId="name">
         <BsForm.Label>Name:</BsForm.Label>
         <BsForm.Control required name="name" />
@@ -49,26 +69,6 @@ function ClientFormBody() {
       <BsForm.Group controlId="address">
         <BsForm.Label>Address:</BsForm.Label>
         <BsForm.Control required name="address" />
-      </BsForm.Group>
-
-      <BsForm.Group controlId="isActive">
-        <BsForm.Label>Active:</BsForm.Label>
-        <BsForm.Check
-          type="radio"
-          label="No"
-          name="isActive"
-          id="isActive"
-          value="false"
-          required
-        />
-        <BsForm.Check
-          type="radio"
-          label="Yes"
-          name="isActive"
-          id="isActive"
-          value="true"
-          required
-        />
       </BsForm.Group>
     </>
   );
