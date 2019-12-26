@@ -53,8 +53,8 @@ function ClientsPage() {
       headers: {
         "Content-Type": "application/json"
       }
-    }).then(function(response) {
-      fetchClients();
+    }).then(function() {
+      setClients([...clients, serializedFormData]);
     });
   };
 
