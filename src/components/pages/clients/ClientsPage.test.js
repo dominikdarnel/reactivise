@@ -74,7 +74,6 @@ describe("ClientsPage", () => {
   test("clicking on New Client button opens modal", async () => {
     let getByTestId;
     let getByText;
-    let debug;
 
     const mockedResponse = [];
     fetch.mockResponseOnce(JSON.stringify(mockedResponse));
@@ -83,7 +82,6 @@ describe("ClientsPage", () => {
       const rendered = render(<ClientsPage />);
       getByTestId = rendered.getByTestId;
       getByText = rendered.getByText;
-      debug = rendered.debug;
     });
 
     await wait(() => {
