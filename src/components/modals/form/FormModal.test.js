@@ -28,6 +28,24 @@ describe("Modal", () => {
     expect(modalBody).toBeInTheDocument();
   });
 
+  test("renders button label and header label", () => {
+    const { getByText } = render(
+      <FormModal
+        show={true}
+        buttonLabel="buttonLabel"
+        headerLabel="headerLabel"
+        onHide={onHide}
+        onSubmit={onSubmit}
+      />
+    );
+
+    const headerLabel = getByText("headerLabel");
+    const buttonLabel = getByText("buttonLabel");
+
+    expect(headerLabel).toBeInTheDocument();
+    expect(buttonLabel).toBeInTheDocument();
+  });
+
   test("closes opened modal when clicking on secondary button", () => {
     const { getByTestId, queryByTestId } = render(
       <FormModal show={true} onHide={onHide} onSubmit={onSubmit} />
@@ -56,7 +74,7 @@ describe("Modal", () => {
     });
   });
 
-  test("calls onSubmit callback with serialized form data", () => {
+  test.skip("calls onSubmit callback with serialized form data", () => {
     const { getByTestId } = render(
       <FormModal show={true} onHide={onHide} onSubmit={onSubmit} />
     );
@@ -67,23 +85,5 @@ describe("Modal", () => {
     wait(() => {
       expect(onSubmit).toBeCalled();
     });
-  });
-
-  test("renders button label and header label", () => {
-    const { getByText } = render(
-      <FormModal
-        show={true}
-        buttonLabel="buttonLabel"
-        headerLabel="headerLabel"
-        onHide={onHide}
-        onSubmit={onSubmit}
-      />
-    );
-
-    const headerLabel = getByText("headerLabel");
-    const buttonLabel = getByText("buttonLabel");
-
-    expect(headerLabel).toBeInTheDocument();
-    expect(buttonLabel).toBeInTheDocument();
   });
 });
