@@ -7,9 +7,9 @@ import BsForm from "react-bootstrap/Form";
 function FormModal({
   show,
   onHide,
+  onSubmit,
   buttonLabel,
   headerLabel,
-  onSubmit,
   children
 }) {
   const [validated, setValidated] = useState(false);
@@ -52,7 +52,11 @@ function FormModal({
             >
               Close
             </BsButton>
-            <BsButton type="submit" variant="success">
+            <BsButton
+              type="submit"
+              variant="success"
+              data-testid="submit-button"
+            >
               {buttonLabel}
             </BsButton>
           </BsModal.Footer>

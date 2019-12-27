@@ -5,9 +5,16 @@ import BsForm from "react-bootstrap/Form";
 function ClientFormBody() {
   return (
     <>
+      <div data-testid="client-form-body" />
       <BsForm.Group controlId="id">
         <BsForm.Label>ID:</BsForm.Label>
-        <BsForm.Control required readOnly defaultValue={uuid()} name="id" />
+        <BsForm.Control
+          required
+          readOnly
+          defaultValue={uuid()}
+          name="id"
+          data-testid="client-form-value-id"
+        />
       </BsForm.Group>
 
       <BsForm.Group controlId="isActive">
@@ -43,9 +50,7 @@ function ClientFormBody() {
       <BsForm.Group controlId="gender">
         <BsForm.Label>Gender</BsForm.Label>
         <BsForm.Control as="select" required name="gender">
-          <option disabled selected>
-            Please choose gender
-          </option>
+          <option disabled>Please choose gender</option>
           <option>Male</option>
           <option>Female</option>
         </BsForm.Control>
