@@ -9,7 +9,7 @@ function FormModal({
   onHide,
   buttonLabel,
   headerLabel,
-  processSubmit,
+  onSubmit,
   children
 }) {
   const [validated, setValidated] = useState(false);
@@ -22,16 +22,22 @@ function FormModal({
     event.stopPropagation();
 
     if (form.checkValidity() === true) {
-      processSubmit(serializedFormData);
+      setValidated(false);
+      onSubmit(serializedFormData);
     }
 
     setValidated(true);
   };
 
+  const handleHide = () => {
+    setValidated(false);
+    onHide();
+  };
+
   return (
     <>
       <div data-testid="modal" />
-      <BsModal show={show} onHide={onHide}>
+      <BsModal show={show} onHide={handleHide}>
         <BsForm noValidate validated={validated} onSubmit={handleSubmit}>
           <BsModal.Header closeButton>
             <BsModal.Title>{headerLabel}</BsModal.Title>
@@ -40,7 +46,7 @@ function FormModal({
           <BsModal.Footer>
             <BsButton
               variant="secondary"
-              onClick={onHide}
+              onClick={handleHide}
               data-testid="secondary-button"
             >
               Close

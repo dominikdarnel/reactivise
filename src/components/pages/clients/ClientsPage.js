@@ -138,7 +138,7 @@ function ClientsPage() {
         buttonLabel="Save Client"
         headerLabel="New Client"
         onHide={closeModal}
-        processSubmit={submitNewClient}
+        onSubmit={submitNewClient}
       >
         <ClientFormBody />
       </FormModal>
