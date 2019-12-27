@@ -43,7 +43,7 @@ function ClientFormBody() {
       <BsForm.Group controlId="gender">
         <BsForm.Label>Gender</BsForm.Label>
         <BsForm.Control as="select" required name="gender">
-          <option disabled value>
+          <option disabled selected>
             Please choose gender
           </option>
           <option>Male</option>
@@ -63,7 +63,7 @@ function ClientFormBody() {
 
       <BsForm.Group controlId="phone">
         <BsForm.Label>Phone:</BsForm.Label>
-        <BsForm.Control name="phone" />
+        <BsForm.Control required name="phone" />
       </BsForm.Group>
 
       <BsForm.Group controlId="address">

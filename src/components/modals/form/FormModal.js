@@ -24,9 +24,10 @@ function FormModal({
     if (form.checkValidity() === true) {
       setValidated(false);
       onSubmit(serializedFormData);
+      onHide();
+    } else {
+      setValidated(true);
     }
-
-    setValidated(true);
   };
 
   const handleHide = () => {
